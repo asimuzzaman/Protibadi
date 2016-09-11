@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<manifest xmlns="http://tizen.org/ns/packages" api-version="2.4" package="org.example.protibadi_service" version="1.0.0">
+    <profile name="mobile"/>
+    <service-application appid="org.example.protibadi_service" exec="protibadi_service" multiple="false" nodisplay="true" taskmanage="false" type="capp">
+        <label>protibadi_service</label>
+        <icon>protibadi_service.png</icon>
+    </service-application>
+</manifest>

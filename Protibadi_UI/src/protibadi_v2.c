@@ -22,46 +22,6 @@ win_back_cb(void *data, Evas_Object *obj, void *event_info)
 }
 
 static void
-create_base_gui_default(appdata_s *ad)
-{
-	/* Window */
-	/* Create and initialize elm_win.
-	   elm_win is mandatory to manipulate window. */
-	ad->win = elm_win_util_standard_add(PACKAGE, PACKAGE);
-	elm_win_autodel_set(ad->win, EINA_TRUE);
-
-	if (elm_win_wm_rotation_supported_get(ad->win)) {
-		int rots[4] = { 0, 90, 180, 270 };
-		elm_win_wm_rotation_available_rotations_set(ad->win, (const int *)(&rots), 4);
-	}
-
-	evas_object_smart_callback_add(ad->win, "delete,request", win_delete_request_cb, NULL);
-	eext_object_event_callback_add(ad->win, EEXT_CALLBACK_BACK, win_back_cb, ad);
-
-	/* Conformant */
-	/* Create and initialize elm_conformant.
-	   elm_conformant is mandatory for base gui to have proper size
-	   when indicator or virtual keypad is visible. */
-	ad->conform = elm_conformant_add(ad->win);
-	elm_win_indicator_mode_set(ad->win, ELM_WIN_INDICATOR_SHOW);
-	elm_win_indicator_opacity_set(ad->win, ELM_WIN_INDICATOR_OPAQUE);
-	evas_object_size_hint_weight_set(ad->conform, EVAS_HINT_EXPAND, EVAS_HINT_EXPAND);
-	elm_win_resize_object_add(ad->win, ad->conform);
-	evas_object_show(ad->conform);
-
-	/* Label */
-	/* Create an actual view of the base gui.
-	   Modify this part to change the view. */
-	ad->label = elm_label_add(ad->conform);
-	elm_object_text_set(ad->label, "<align=center>Hello Tizen</align>");
-	evas_object_size_hint_weight_set(ad->label, EVAS_HINT_EXPAND, EVAS_HINT_EXPAND);
-	elm_object_content_set(ad->conform, ad->label);
-
-	/* Show window after base gui is set up */
-	evas_object_show(ad->win);
-}
-
-static void
 list_selected_cb(void *data, Evas_Object *obj, void *event_info)
 {
 	Elm_Object_Item *it = event_info;
