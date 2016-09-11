@@ -5,4 +5,10 @@
         <label>protibadi_service</label>
         <icon>protibadi_service.png</icon>
     </service-application>
+    <privileges>
+        <privilege>http://tizen.org/privilege/location</privilege>
+        <privilege>http://tizen.org/privilege/message.write</privilege>
+        <privilege>http://tizen.org/privilege/email</privilege>
+        <privilege>http://tizen.org/privilege/bluetooth</privilege>
+    </privileges>
 </manifest>
