@@ -2,8 +2,10 @@
 #include <service_app.h>
 #include "protibadi_service.h"
 
+
 bool service_app_create(void *data)
 {
+	run_app();
     // Todo: add your code here.
     return true;
 }
