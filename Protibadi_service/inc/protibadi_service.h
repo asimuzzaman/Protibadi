@@ -3,9 +3,11 @@
 
 #include <dlog.h>
 #include <locations.h>
+#include <messages.h>
 
 #include "location_service.h"
 #include "data_processing.h"
+#include "message.h"
 
 /*implementation of PRINT_MSG function
  * #define PRINT_MSG(fmt, args...) do { char _log_[_PRINT_MSG_LOG_BUFFER_SIZE_]; \

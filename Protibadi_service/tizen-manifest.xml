@@ -10,5 +10,6 @@
         <privilege>http://tizen.org/privilege/message.write</privilege>
         <privilege>http://tizen.org/privilege/email</privilege>
         <privilege>http://tizen.org/privilege/bluetooth</privilege>
+        <privilege>http://tizen.org/privilege/message.read</privilege>
     </privileges>
 </manifest>
