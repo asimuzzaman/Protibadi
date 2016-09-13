@@ -130,6 +130,10 @@ void _get_last_location_cb(double *lat, double *longt)
     *longt = longitude;
 }
 
+void location_close_service() {
+	location_manager_destroy(manager);
+}
+
 void run_location(double *latitude, double *longitude) {
 	_location_init();
 	_get_last_location_cb(latitude, longitude);

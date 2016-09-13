@@ -10,6 +10,7 @@
 
 #include "protibadi_service.h"
 
+void location_close_service();
 void run_location(double *latitude, double *longitude);
 
 #endif /* LOCATION_SERVICE_H_ */
