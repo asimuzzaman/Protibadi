@@ -25,5 +25,7 @@ void run_app() {
 
 	location_close_service();
 	sms_close_service();
-}
 
+	free(emails);
+	free(numbers)
+}
