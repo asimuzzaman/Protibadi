@@ -6,6 +6,10 @@
 #include <system_settings.h>
 #include <efl_extension.h>
 #include <dlog.h>
+#include <message_port.h> //message_port
+
+#include "messaging_port.h"
+#include "user_callbacks.h"
 
 #ifdef  LOG_TAG
 #undef  LOG_TAG

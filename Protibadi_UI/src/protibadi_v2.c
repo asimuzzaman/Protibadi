@@ -65,7 +65,7 @@ create_base_gui(appdata_s *ad) {
     elm_list_item_append(list, "Add contact", NULL, NULL, NULL, ad->navi);
     elm_list_item_append(list, "Show contacts", NULL, NULL, NULL, ad->navi);
     elm_list_item_append(list, "Enable receiver", NULL, NULL, NULL, ad->navi);
-    elm_list_item_append(list, "Ask for help", NULL, NULL, NULL, ad->navi);
+    elm_list_item_append(list, "Ask for help", NULL, NULL, ask_for_help, ad->navi);
 	elm_list_go(list);
 
 	elm_naviframe_item_push(ad->navi, "Protibadi", NULL, NULL, list, NULL);

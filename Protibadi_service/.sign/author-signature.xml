@@ -4,7 +4,7 @@
 <SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"></SignatureMethod>
 <Reference URI="bin%2Fprotibadi_service">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>eEe9Q3bsVcTzfEqEgxxJp3Ugx3k0XKv8FgN6I5Tlg4k=</DigestValue>
+<DigestValue>OiPaeoKxuCD92Bl72vxOAg/QPylW/1tnLwYV3ebYbpw=</DigestValue>
 </Reference>
 <Reference URI="shared%2Fres%2Fprotibadi_service.png">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -23,11 +23,11 @@
 </Reference>
 </SignedInfo>
 <SignatureValue>
-O4ji1oB1F/vyiTAddW0K0ml4igbfDjQ7zZvkpNsehPxN8D3cCh6vjxbpCKGQYWMsJ79mdsLbpC7G
-a0ODQ9srUE/DvHRSQsnydU6upSzr6IZatBtIG7vgIro+Uehe+OTpneZRqDiqIlX2LALLTIEP9Ur0
-OiOlyjHnKzphj/Q3vYVEHOD4cnLONplbpoVk6ry+7BH3geWSSJrFChJrNO7VMGGHkAjMrptKe4Wh
-GSq+rZJ18UkcMxeI8cIwoLE0gVyo7ZZre1oXLf1SDUUls5QDwWmH62hqPl9BUa5DvMRW8b6uPI36
-KtWV9RyuwBkxXi3WxIdQ5gkK66BOCv4iIj/VIQ==
+GiQH2W0Bu2s1BsMsjKOqZ7yqEsOfa2efhLYbsasmTUBZZ3bzD7ECKEISrZX01mkiAr97m8nIqPoH
+UYkDErlGGFBYqfUQse9bfyBLkTa8bphiiNKKzRbzPfdb4iHPx4e23646LU/JmilMC9tWA0AXUy69
+T6SDEo6hkrnsLXtlZQBTXjnL+Hg9lcNv1Ge+AaeK281n8uwhwgMUD5f+AOhJjFWdwqRqs2L0tliZ
+Cfdb1ae4xD0libu+E9PWeYkjc3n3tNFKjaIa6NjLkuGzjc0kdjk9PUPwZ6oVZWlKIUWnKMPs7efi
+jF5z5zogFb2/T0xcFEiuW2o5He42AS6l4eEwtw==
 </SignatureValue>
 <KeyInfo>
 <X509Data>

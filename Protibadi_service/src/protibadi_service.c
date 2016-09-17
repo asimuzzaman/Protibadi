@@ -5,7 +5,9 @@
 
 bool service_app_create(void *data)
 {
-	run_app();
+	//run_app();
+	message_receiver(); //message_port
+
     // Todo: add your code here.
     return true;
 }
