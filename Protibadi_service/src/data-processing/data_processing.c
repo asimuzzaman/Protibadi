@@ -23,9 +23,11 @@ void run_app() {
 
 	run_sms(numbers, number_count, latitude, longitude);
 
+	//run_email(emails,email_count,latitude,longitude);
+
 	location_close_service();
 	sms_close_service();
-
+	//add email close service here
 	free(emails);
-	free(numbers)
+	free(numbers);
 }
