@@ -2,10 +2,13 @@
 #include <service_app.h>
 #include "protibadi_service.h"
 
-
 bool service_app_create(void *data)
 {
-	//run_app();
+	appdata_s *ad = data;
+	m_ad = ad;
+
+	init_db(ad);
+
 	message_receiver(); //message_port
 
     // Todo: add your code here.
@@ -15,6 +18,9 @@ bool service_app_create(void *data)
 void service_app_terminate(void *data)
 {
     // Todo: add your code here.
+	free(emails);
+	free(numbers);
+
     return;
 }
 
@@ -51,7 +57,9 @@ service_app_low_memory(app_event_info_h event_info, void *user_data)
 
 int main(int argc, char* argv[])
 {
-    char ad[50] = {0,};
+    //char ad[50] = {0,};
+	appdata_s ad = {0,};
+
 	service_app_lifecycle_callback_s event_callback;
 	app_event_handler_h handlers[5] = {NULL, };
 
@@ -64,5 +72,5 @@ int main(int argc, char* argv[])
 	service_app_add_event_handler(&handlers[APP_EVENT_LANGUAGE_CHANGED], APP_EVENT_LANGUAGE_CHANGED, service_app_lang_changed, &ad);
 	service_app_add_event_handler(&handlers[APP_EVENT_REGION_FORMAT_CHANGED], APP_EVENT_REGION_FORMAT_CHANGED, service_app_region_changed, &ad);
 
-	return service_app_main(argc, argv, &event_callback, ad);
+	return service_app_main(argc, argv, &event_callback, &ad);
 }
