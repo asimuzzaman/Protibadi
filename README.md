@@ -1,6 +1,6 @@
 # Protibadi App
-*pre-alpha version (platform: Tizen OS)*
-### An app for helping women or anyone to ask for help during harassment.
+*(platform: Tizen OS)*
+### A Tizen OS based mobile app and IoT for seeking help against harassment 
 **How to use it -**
 - Pre-requisites
     - An active SIM card should be kept inserted into the phone.
