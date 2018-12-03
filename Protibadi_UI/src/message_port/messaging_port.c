@@ -24,11 +24,11 @@ bool test_check_remote_port()
 
 void send_message_port(bundle *b)
 {
-	if (test_check_remote_port()) {
-		dlog_print(DLOG_INFO, LOG_TAG, "port is found");
-	} else {
-		dlog_print(DLOG_INFO, LOG_TAG, "port is not found");
-	}
+   if (test_check_remote_port()) {
+      dlog_print(DLOG_INFO, LOG_TAG, "port is found");
+   } else {
+      dlog_print(DLOG_INFO, LOG_TAG, "port is not found");
+   }
 
    int ret;
    /*bundle *b = bundle_create ();
