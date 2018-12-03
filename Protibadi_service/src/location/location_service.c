@@ -35,6 +35,7 @@ static void __state_changed_cb(location_service_state_e state, void *user_data)
             /*PRINT_MSG("Error %s",
                       (LOCATIONS_ERROR_SERVICE_NOT_AVAILABLE ==
                        ret) ? "LOCATIONS_ERROR_SERVICE_NOT_AVAILABLE" : "Other error");*/
+            dlog_print(DLOG_ERROR, LOG_TAG, "Error %s", (LOCATIONS_ERROR_SERVICE_NOT_AVAILABLE == ret) ? "LOCATIONS_ERROR_SERVICE_NOT_AVAILABLE" : "Other error");
         }
 
         /*PRINT_MSG("Current location: A:%f La:%f Lo:%f ", altitude, latitude, longitude);*/
@@ -118,7 +119,10 @@ void _get_last_location_cb(double *lat, double *longt)
             &climb, &direction, &speed, &level, &horizontal,
             &vertical, &timestamp);
     if (LOCATIONS_ERROR_NONE != ret) {
+        dlog_print(DLOG_DEBUG, LOG_TAG, "DEBUGGING: %d", LOCATIONS_ERROR_SERVICE_NOT_AVAILABLE);
+
         dlog_print(DLOG_ERROR, LOG_TAG, "location_manager_get_last_location failed : %d", ret);
+
         /*PRINT_MSG("location_manager_get_last_location failed : %d", ret);*/
     } else {
         /*PRINT_MSG("Last location: A:%f La:%f Lo:%f ", altitude, latitude, longitude);*/
@@ -131,11 +135,11 @@ void _get_last_location_cb(double *lat, double *longt)
 }
 
 void location_close_service() {
-	location_manager_destroy(manager);
+    location_manager_destroy(manager);
 }
 
 void run_location(double *latitude, double *longitude) {
-	_location_init();
-	_get_last_location_cb(latitude, longitude);
-	//ADD LOCATION DESTROY FUNCTION HERE
+    _location_init();
+    _get_last_location_cb(latitude, longitude);
+    //ADD LOCATION DESTROY FUNCTION HERE
 }
