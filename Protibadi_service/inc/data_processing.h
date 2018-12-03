@@ -10,6 +10,8 @@
 
 #include "protibadi_service.h"
 
+static double latitude, longitude;
+
 void run_app();
 
 #endif /* DATA_PROCESSING_H_ */
