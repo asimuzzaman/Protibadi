@@ -16,6 +16,17 @@
 #endif
 #define LOG_TAG "protibadi_v2"
 
+typedef struct appdata {
+	Evas_Object *win;
+	Evas_Object *navi;
+	Evas_Object *conform;
+	Evas_Object *label;
+
+	Evas_Object *entry1; //
+	Evas_Object *entry2; //
+	Evas_Object *entry3; //
+} appdata_s;
+
 #if !defined(PACKAGE)
 #define PACKAGE "org.example.protibadi_v2"
 #endif

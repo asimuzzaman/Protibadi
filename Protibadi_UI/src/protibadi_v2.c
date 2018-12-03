@@ -1,11 +1,6 @@
 #include "protibadi_v2.h"
 
-typedef struct appdata {
-	Evas_Object *win;
-	Evas_Object *navi;
-	Evas_Object *conform;
-	Evas_Object *label;
-} appdata_s;
+appdata_s *ad; //Global app data Struct
 
 static void
 win_delete_request_cb(void *data, Evas_Object *obj, void *event_info)
@@ -26,6 +21,73 @@ list_selected_cb(void *data, Evas_Object *obj, void *event_info)
 {
 	Elm_Object_Item *it = event_info;
 	elm_list_item_selected_set(it, EINA_FALSE);
+}
+
+static void my_table_pack(Evas_Object *table, Evas_Object *child, int x, int y, int w, int h) //
+{
+	evas_object_size_hint_align_set(child, EVAS_HINT_FILL, EVAS_HINT_FILL);
+	evas_object_size_hint_weight_set(child, EVAS_HINT_EXPAND, EVAS_HINT_EXPAND);
+	elm_table_pack(table, child, x, y, w, h);
+	evas_object_show(child);
+}
+
+static void
+add_contact_ui(void *data) {
+
+	Evas_Object *box = elm_box_add(ad->conform);
+	evas_object_size_hint_weight_set(box, EVAS_HINT_EXPAND, 0.0);
+	elm_object_content_set(ad->conform, box);
+	evas_object_show(box);
+
+	/* Table */
+	Evas_Object *table = elm_table_add(ad->conform);
+	/* Make table homogenous - every cell will be the same size */
+	elm_table_homogeneous_set(table, EINA_TRUE);
+	/* Set padding of 10 pixels multiplied by scale factor of UI */
+	elm_table_padding_set(table, 10 * elm_config_scale_get(), 10 * elm_config_scale_get());
+	/* Let the table child allocation area expand within in the box */
+	evas_object_size_hint_weight_set(table, EVAS_HINT_EXPAND, EVAS_HINT_EXPAND);
+	/* Set table to fiill width but align to bottom of box */
+	evas_object_size_hint_align_set(table, EVAS_HINT_FILL, /*EVAS_HINT_FILL*/0.05);
+	elm_box_pack_end(box, table);
+	evas_object_show(table);
+
+	/* Bg-1 */
+	Evas_Object *bg = elm_bg_add(ad->conform);
+	elm_bg_color_set(bg, 210, 210, 210);
+	my_table_pack(table, bg, 0, 0, 3, 1);
+
+	/* Entry-1 */
+	ad->entry1 = elm_entry_add(ad->conform);
+	elm_object_part_text_set(ad->entry1, "elm.guide", "Name");
+	my_table_pack(table, ad->entry1, 0, 0, 3, 1);
+
+	/* Bg-2 */
+	bg = elm_bg_add(ad->conform);
+	elm_bg_color_set(bg, 210, 210, 210);
+	my_table_pack(table, bg, 0, 1, 3, 1);
+
+	/* Entry-2 */
+	ad->entry2 = elm_entry_add(ad->conform);
+	elm_object_part_text_set(ad->entry2, "elm.guide", "Number");
+	my_table_pack(table, ad->entry2, 0, 1, 3, 1);
+
+	/* Bg-3 */
+	bg = elm_bg_add(ad->conform);
+	elm_bg_color_set(bg, 210, 210, 210);
+	my_table_pack(table, bg, 0, 2, 3, 1);
+
+	/* Entry-3 */
+	ad->entry3 = elm_entry_add(ad->conform);
+	elm_object_part_text_set(ad->entry3, "elm.guide", "Email");
+	my_table_pack(table, ad->entry3, 0, 2, 3, 1);
+
+	/* Button-Add */
+	Evas_Object *btn = elm_button_add(ad->conform);
+	elm_object_text_set(btn, "Add");
+	evas_object_smart_callback_add(btn, "clicked", btn_add_cb, ad); //send to SERVICE APP
+	//my_table_pack(table, btn, 0, 1, 1, 1);
+	my_table_pack(table, btn, 1, 3, 1, 1);
 }
 
 static void
@@ -62,7 +124,7 @@ create_base_gui(appdata_s *ad) {
     elm_list_mode_set(list, ELM_LIST_COMPRESS);
     evas_object_smart_callback_add(list, "selected", list_selected_cb, NULL);
 
-    elm_list_item_append(list, "Add contact", NULL, NULL, NULL, ad->navi);
+    elm_list_item_append(list, "Add contact", NULL, NULL, add_contact_ui, ad->navi);
     elm_list_item_append(list, "Show contacts", NULL, NULL, NULL, ad->navi);
     elm_list_item_append(list, "Enable receiver", NULL, NULL, NULL, ad->navi);
     elm_list_item_append(list, "Ask for help", NULL, NULL, ask_for_help, ad->navi);
@@ -70,7 +132,7 @@ create_base_gui(appdata_s *ad) {
 
 	elm_naviframe_item_push(ad->navi, "Protibadi", NULL, NULL, list, NULL);
 
-	evas_object_show(ad->win); //IS IT HERE??
+	evas_object_show(ad->win); //
 }
 
 static bool
@@ -80,9 +142,11 @@ app_create(void *data)
 		Initialize UI resources and application's data
 		If this function returns true, the main loop of application starts
 		If this function returns false, the application is terminated */
-	appdata_s *ad = data;
+	ad = data;
 
 	create_base_gui(ad);
+
+	launch_service_app();
 
 	return true;
 }
