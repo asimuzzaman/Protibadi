@@ -1,5 +1,5 @@
 # Protibadi App
-*(platform: Tizen OS)*
+*(platform: Tizen OS, Tested on: Samsung Galaxy Z1)*
 ### A Tizen OS based mobile app and IoT for seeking help against harassment 
 **How to use it -**
 - Pre-requisites
