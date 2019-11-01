@@ -38,4 +38,4 @@ const char *remote_server_address = "your:phone's:MAC:address"; //add this line
 
 **Developers' names-**
 1. Md. Asimuzzaman Mansib (@asimuzzaman)
-2. Farah Hossain (@fiascofreak)
+2. Farah Hossain (@farahowo)
